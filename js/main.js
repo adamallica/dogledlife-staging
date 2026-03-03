@@ -2,32 +2,25 @@
 const toggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
 
-toggle.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-});
-
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => navLinks.classList.remove('open'));
-});
+if (toggle && navLinks) {
+    toggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+}
 
 // Page transitions
-requestAnimationFrame(() => {
-    document.body.classList.add('page-loaded');
-});
-
-window.addEventListener('pageshow', () => {
-    document.body.classList.add('page-loaded');
-});
-
 document.querySelectorAll('a[href]').forEach(link => {
     const href = link.getAttribute('href');
-    if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto') && !href.startsWith('sms')) {
+    if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto') && !href.startsWith('sms') && !href.startsWith('tel')) {
         link.addEventListener('click', (e) => {
+            if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+            if (link.target === '_blank') return;
             e.preventDefault();
-            document.body.classList.remove('page-loaded');
-            setTimeout(() => {
-                window.location.href = href;
-            }, 600);
+            document.body.classList.add('page-transition');
+            setTimeout(() => { window.location.href = href; }, 600);
         });
     }
 });

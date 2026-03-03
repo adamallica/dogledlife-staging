@@ -46,11 +46,12 @@ body::before {
     inset: 0;
     background: var(--black);
     z-index: 9999;
+    opacity: 0;
     transition: opacity 0.6s ease;
     pointer-events: none;
 }
 
-body.page-loaded::before { opacity: 0; }
+body.page-transition::before { opacity: 1; }
 
 /* =====================
    LAYOUT
