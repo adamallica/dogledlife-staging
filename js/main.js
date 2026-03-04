@@ -24,3 +24,38 @@ document.querySelectorAll('a[href]').forEach(link => {
         });
     }
 });
+
+// Scroll reveal
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+
+document.querySelectorAll([
+    '.service-photo-card', '.service-card', '.service-dog-card', '.spec-item',
+    '.philosophy-quote', '.section-title', '.section-eyebrow', '.page-eyebrow',
+    '.about-snippet-text', '.about-text', '.ps-item',
+    '.cta-banner h2', '.cta-banner p', '.cta-banner .btn',
+    '.page-header h1', '.page-header p',
+    '.service-detail-content', '.service-detail-image'
+].join(',')).forEach(el => {
+    el.classList.add('reveal');
+    revealObserver.observe(el);
+});
+
+// Stagger delays for card groups
+[
+    '.services-grid .service-photo-card',
+    '.services-grid .service-card',
+    '.service-dog-grid .service-dog-card',
+    '.spec-grid .spec-item',
+    '.photo-strip .ps-item'
+].forEach(sel => {
+    document.querySelectorAll(sel).forEach((el, i) => {
+        el.style.transitionDelay = `${i * 0.1}s`;
+    });
+});

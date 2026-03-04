@@ -179,7 +179,7 @@ body.page-transition::before { opacity: 1; }
     background: var(--yellow);
     color: var(--black);
     border: 2px solid var(--yellow);
-    transition: background 0.2s, border-color 0.2s;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
     cursor: pointer;
     text-transform: uppercase;
 }
@@ -187,6 +187,8 @@ body.page-transition::before { opacity: 1; }
 .btn:hover {
     background: var(--yellow-dark);
     border-color: var(--yellow-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(245, 158, 11, 0.4);
 }
 
 .btn-outline {
@@ -221,10 +223,29 @@ body.page-transition::before { opacity: 1; }
 }
 
 .hero-left {
+    position: relative;
+    overflow: hidden;
     background: var(--cream);
     display: flex;
     align-items: center;
     padding: 9rem 5rem 6rem;
+}
+
+@keyframes hero-glow-pulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50%       { opacity: 1;   transform: scale(1.2); }
+}
+
+.hero-left::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, transparent 65%);
+    top: -150px;
+    right: -150px;
+    pointer-events: none;
+    animation: hero-glow-pulse 9s ease-in-out infinite;
 }
 
 .hero-right {
@@ -346,7 +367,7 @@ body.page-transition::before { opacity: 1; }
 }
 
 .service-card:hover {
-    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08), 0 0 30px rgba(245, 158, 11, 0.1);
     transform: translateY(-2px);
 }
 
@@ -1003,7 +1024,7 @@ body.page-transition::before { opacity: 1; }
 
 .service-photo-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1), 0 0 40px rgba(245, 158, 11, 0.12);
 }
 
 .spc-img {
@@ -1037,6 +1058,25 @@ body.page-transition::before { opacity: 1; }
     color: var(--grey-text);
     line-height: 1.75;
     margin-bottom: 1.2rem;
+}
+
+/* =====================
+   SCROLL REVEAL
+   ===================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .hero-left::before { animation: none; }
 }
 
 /* =====================
