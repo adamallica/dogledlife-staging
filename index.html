@@ -11,6 +11,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.dogledlife.com/">
     <meta property="og:site_name" content="Dog-Led Life">
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +21,7 @@
 
     <!-- NAVIGATION -->
     <nav class="nav">
-        <a href="index.html" class="nav-brand">Dog-Led Life</a>
+        <a href="index.html" class="nav-brand"><img src="images/dogledlife-text.png" alt="Dog-Led Life"></a>
         <button class="nav-toggle" aria-label="Open menu">
             <span></span>
             <span></span>
@@ -32,27 +33,44 @@
             <li><a href="services.html">SERVICES</a></li>
             <li><a href="contact.html">CONTACT</a></li>
         </ul>
+        <a href="tel:+18185153580" class="nav-contact">(818) 515-3580</a>
         <a href="contact.html" class="nav-cta">GET STARTED</a>
     </nav>
 
     <!-- HERO -->
     <section class="hero">
-        <div class="hero-left">
-            <div class="hero-content">
-                <p class="hero-eyebrow">Certified Behavior Specialist — Agoura Hills, CA</p>
-                <div class="hero-headline-row">
-                    <h1 class="hero-headline">Happy Dogs.<br><em>Strong Bonds.</em><br>Real Results.</h1>
-                    <img src="images/certified-trainer.png" alt="Certified Trainer" class="hero-cert-badge">
-                </div>
+        <img src="images/hero.jpg" alt="Professional dog training with Anastasia Lavian" class="hero-bg">
+        <div class="hero-left-panel">
+            <p class="hero-eyebrow">Certified Behavior Specialist — Agoura Hills, CA</p>
+            <h1 class="hero-headline">
+                <span class="hl-left">Happy Dogs.</span>
+                <span class="hl-stamp"><em>Strong Bonds.</em></span>
+                <span class="hl-right">Real Results.</span>
+            </h1>
+        </div>
+        <div class="hero-right-panel">
+            <img src="images/certified-trainer.png" alt="Certified Trainer" class="hero-cert-badge">
+            <div class="hero-testimonial-carousel">
+                <blockquote class="hero-testimonial active">
+                    <p>"Anastasia transformed our reactive rescue in just weeks."</p>
+                    <cite>— Sarah M., Agoura Hills</cite>
+                </blockquote>
+                <blockquote class="hero-testimonial">
+                    <p>"Our dog's entire behavior changed. We finally feel confident on walks."</p>
+                    <cite>— James & Lily T., Westlake Village</cite>
+                </blockquote>
+                <blockquote class="hero-testimonial">
+                    <p>"The best investment we've made for our family and our dog."</p>
+                    <cite>— Michelle R., Calabasas</cite>
+                </blockquote>
+            </div>
+            <div class="hero-bottom">
                 <p class="hero-sub">Over 20 years of reward-based, dog-led training — from first-time pet owners to owner-trained service dog teams.</p>
                 <div class="hero-actions">
                     <a href="contact.html" class="btn">BOOK A SESSION</a>
                     <a href="services.html" class="btn btn-outline-dark">VIEW SERVICES</a>
                 </div>
             </div>
-        </div>
-        <div class="hero-right">
-            <img src="images/hero.jpg" alt="Professional dog training with Anastasia Lavian">
         </div>
     </section>
 
@@ -153,6 +171,7 @@
             <div class="footer-brand">
                 <p class="footer-name">Dog-Led Life 🐾</p>
                 <p class="footer-tagline">Professional Dog Training — Agoura Hills & Surrounding Areas</p>
+                <a href="tel:+18185153580" class="footer-phone">(818) 515-3580</a>
             </div>
             <div class="footer-col">
                 <h4>PAGES</h4>
@@ -187,6 +206,10 @@
             <p>&copy; 2026 Dog-Led Life. All rights reserved.</p>
         </div>
     </footer>
+
+    <video class="dog-float" autoplay loop muted playsinline>
+        <source src="images/dog-animation.webm" type="video/webm">
+    </video>
 
     <script src="js/main.js"></script>
 </body>

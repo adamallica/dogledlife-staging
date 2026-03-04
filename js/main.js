@@ -47,6 +47,31 @@ document.querySelectorAll([
     revealObserver.observe(el);
 });
 
+// Testimonial carousel
+const testimonialItems = document.querySelectorAll('.hero-testimonial');
+if (testimonialItems.length > 1) {
+    let currentT = 0;
+    setInterval(() => {
+        const next = (currentT + 1) % testimonialItems.length;
+        testimonialItems[currentT].classList.add('exiting');
+        testimonialItems[currentT].classList.remove('active');
+        testimonialItems[next].classList.add('active');
+        const prev = currentT;
+        setTimeout(() => testimonialItems[prev].classList.remove('exiting'), 550);
+        currentT = next;
+    }, 4000);
+}
+
+// Dog bark on click
+const dogFloat = document.querySelector('.dog-float');
+if (dogFloat) {
+    const bark = new Audio('sounds/dogledlife-bark.m4a');
+    dogFloat.addEventListener('click', () => {
+        bark.currentTime = 0;
+        bark.play();
+    });
+}
+
 // Stagger delays for card groups
 [
     '.services-grid .service-photo-card',
