@@ -271,8 +271,9 @@ body.page-transition::before { opacity: 1; }
     top: 5.5rem;
     right: 1.5rem;
     width: 110px;
-    opacity: 0.9;
+    opacity: 0;
     pointer-events: none;
+    animation: stamp-in 0.65s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 1.6s;
 }
 
 .hero-eyebrow {
@@ -1070,6 +1071,41 @@ body.page-transition::before { opacity: 1; }
 }
 
 /* =====================
+   HERO ENTRANCE ANIMATIONS
+   ===================== */
+@keyframes hero-slide-left {
+    from { opacity: 0; transform: translateX(-40px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes stamp-in {
+    0%   { opacity: 0; transform: scale(2.8) rotate(12deg); }
+    60%  { opacity: 1; transform: scale(1.06) rotate(-3deg); }
+    80%  { transform: scale(0.95) rotate(1deg); }
+    100% { opacity: 0.9; transform: scale(1) rotate(0deg); }
+}
+
+.hero-eyebrow {
+    opacity: 0;
+    animation: hero-slide-left 0.6s ease forwards 0.2s;
+}
+
+.hero-headline {
+    opacity: 0;
+    animation: hero-slide-left 0.7s ease forwards 0.55s;
+}
+
+.hero-sub {
+    opacity: 0;
+    animation: hero-slide-left 0.6s ease forwards 1s;
+}
+
+.hero-actions {
+    opacity: 0;
+    animation: hero-slide-left 0.6s ease forwards 1.3s;
+}
+
+/* =====================
    SCROLL REVEAL
    ===================== */
 .reveal {
@@ -1086,6 +1122,8 @@ body.page-transition::before { opacity: 1; }
 @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
     .hero-left::before { animation: none; }
+    .hero-eyebrow, .hero-headline, .hero-sub, .hero-actions { opacity: 1; animation: none; }
+    .hero-cert-badge { opacity: 0.9; animation: none; }
 }
 
 /* =====================
