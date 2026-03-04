@@ -266,6 +266,15 @@ body.page-transition::before { opacity: 1; }
     max-width: 520px;
 }
 
+.hero-cert-badge {
+    position: absolute;
+    top: 5.5rem;
+    right: 2.5rem;
+    width: 110px;
+    opacity: 0.9;
+    pointer-events: none;
+}
+
 .hero-eyebrow {
     display: block;
     font-family: var(--body);
@@ -1131,6 +1140,7 @@ body.page-transition::before { opacity: 1; }
     }
 
     .hero-left    { padding: 6rem 1.5rem 4rem; }
+    .hero-cert-badge { display: none; }
     .hero-actions { flex-direction: column; }
     .hero-actions .btn { text-align: center; }
     .photo-strip  { height: 240px; }
