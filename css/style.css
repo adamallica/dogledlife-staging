@@ -1133,6 +1133,8 @@ body.page-transition::before { opacity: 1; }
     .hero                { grid-template-columns: 1fr; }
     .hero-left           { padding: 8rem 2.5rem 4rem; }
     .hero-right          { min-height: 50vw; position: relative; }
+    .hero-headline-row   { display: flex; align-items: flex-start; gap: 1.2rem; }
+    .hero-cert-badge     { position: static; width: 80px; flex-shrink: 0; }
     .photo-strip         { grid-template-columns: repeat(2, 1fr); height: 320px; }
     .services-grid       { grid-template-columns: 1fr; }
     .about-snippet-inner { grid-template-columns: 1fr; gap: 3rem; }
@@ -1178,7 +1180,7 @@ body.page-transition::before { opacity: 1; }
     }
 
     .hero-left    { padding: 6rem 1.5rem 4rem; }
-    .hero-cert-badge { display: none; }
+    .hero-cert-badge { width: 70px; }
     .hero-actions { flex-direction: column; }
     .hero-actions .btn { text-align: center; }
     .photo-strip  { height: 240px; }
