@@ -106,12 +106,13 @@ body.page-transition::before { opacity: 1; }
 
 .nav-brand {
     margin-right: auto;
-}
-
-.nav-brand img {
-    height: 32px;
-    width: auto;
-    display: block;
+    font-family: var(--heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--white);
+    letter-spacing: 0.01em;
+    white-space: nowrap;
 }
 
 .nav-links {
@@ -1268,6 +1269,12 @@ body.page-transition::before { opacity: 1; }
     width: 220px;
     cursor: pointer;
     z-index: 50;
+    display: block;
+}
+
+.dog-float img {
+    width: 100%;
+    display: block;
 }
 
 /* =====================
