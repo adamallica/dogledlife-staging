@@ -452,22 +452,49 @@ body.page-transition::before { opacity: 1; }
     font-style: normal;
 }
 
+.philosophy-video-label {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--yellow-dark);
+    letter-spacing: 0.03em;
+}
+
 .philosophy-video {
     position: relative;
     max-width: 720px;
-    margin: 2.5rem auto 0;
+    margin: 0.75rem auto 0;
     border-radius: 12px;
     overflow: hidden;
     aspect-ratio: 16 / 9;
     box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+    cursor: pointer;
 }
 
-.philosophy-video iframe {
-    position: absolute;
-    inset: 0;
+.philosophy-video a {
+    display: block;
+    position: relative;
     width: 100%;
     height: 100%;
-    border: none;
+}
+
+.philosophy-video img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.2s;
+}
+
+.philosophy-video a:hover img { opacity: 0.85; }
+
+.philosophy-video-play {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
 }
 
 /* =====================
