@@ -58,8 +58,7 @@
                     <span class="contact-label">Services</span>
                     <p class="contact-value">Private Training · Virtual Sessions<br>Reverse Board & Train · Service Dogs</p>
                 </div>
-                <form class="contact-form" name="contact" netlify>
-                    <input type="hidden" name="form-name" value="contact">
+                <form class="contact-form" id="contact-form">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">YOUR NAME</label>
@@ -149,5 +148,31 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+    (function () {
+      const form = document.getElementById('contact-form');
+      const btn  = form.querySelector('button[type="submit"]');
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        btn.disabled = true;
+        btn.textContent = 'SENDING...';
+        const fields = {};
+        new FormData(form).forEach((v, k) => { fields[k] = v; });
+        try {
+          const r = await fetch('https://portal.temeculavalleytech.com/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ domain: 'dogledlife.com', formType: 'Contact', fields })
+          });
+          if (!r.ok) throw new Error('Server error');
+          form.innerHTML = '<p style="font-size:1.1rem;padding:2rem 0;text-align:center">Thanks! Anastasia will be in touch within 24 hours.</p>';
+        } catch {
+          btn.disabled = false;
+          btn.textContent = 'SEND MESSAGE';
+          alert('Something went wrong. Please try again or call (818) 515-3580.');
+        }
+      });
+    })();
+    </script>
 </body>
 </html>
