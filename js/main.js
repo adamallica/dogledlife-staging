@@ -59,7 +59,7 @@ if (testimonialItems.length > 1) {
         const prev = currentT;
         setTimeout(() => testimonialItems[prev].classList.remove('exiting'), 550);
         currentT = next;
-    }, 4000);
+    }, 6000);
 }
 
 // Dog bark on click
